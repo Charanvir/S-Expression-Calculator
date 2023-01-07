@@ -1,9 +1,9 @@
 import sys
-from expression_functions import evaluate
+from expression_functions import output_function
 
 user_input = sys.argv[1]
 
 while True:
-    result = evaluate(user_input)
+    result = output_function(user_input)
     print(result)
     break
