@@ -5,4 +5,5 @@ user_input = sys.argv[1]
 
 while True:
     result = evaluate(user_input)
+    print(result)
     break
