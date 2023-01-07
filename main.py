@@ -1,7 +1,8 @@
 import sys
+from expression_functions import evaluate
 
 user_input = sys.argv[1]
 
 while True:
-    print(user_input)
+    result = evaluate(user_input)
     break
