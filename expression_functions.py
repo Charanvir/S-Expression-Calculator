@@ -1,10 +1,16 @@
 def output_function(user_input):
-    while ')' in user_input:
-        right_index = user_input.index(')')
-        left_index = user_input[:right_index].rindex('(')
-        evaluated_expression = evaluate(user_input[left_index + 1:right_index])
-        user_input = user_input[:left_index] + str(evaluated_expression) + user_input[right_index + 1:]
-    return int(user_input)
+    try:
+        while ')' in user_input:
+            right_index = user_input.index(')')
+            left_index = user_input[:right_index].rindex('(')
+            try:
+                evaluated_expression = evaluate(user_input[left_index + 1:right_index])
+            except IndexError:
+                return "Please ensure that each expression has at least two operands"
+            user_input = user_input[:left_index] + str(evaluated_expression) + user_input[right_index + 1:]
+        return int(user_input)
+    except ValueError:
+        return "Please enter the expression in the correct format."
 
 
 def evaluate(expression):
