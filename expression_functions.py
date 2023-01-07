@@ -6,7 +6,7 @@ def output_function(user_input):
             try:
                 evaluated_expression = evaluate(user_input[left_index + 1:right_index])
             except IndexError:
-                return "Please ensure that each expression has at least two operands"
+                return "Please ensure that each expression has at least two valid operands"
             user_input = user_input[:left_index] + str(evaluated_expression) + user_input[right_index + 1:]
         return int(user_input)
     except ValueError:
@@ -22,4 +22,8 @@ def evaluate(expression):
         return int(exp1) + int(exp2)
     elif operator == 'multiply':
         return int(exp1) * int(exp2)
+    elif operator == "exponent":
+        return int(exp1) ** int(exp2)
+    elif operator == "subtract":
+        return int(exp1) - int(exp2)
     return int(expression)
